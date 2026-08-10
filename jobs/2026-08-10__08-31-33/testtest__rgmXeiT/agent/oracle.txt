@@ -1,1 +1,0 @@
-Oracle patch applied cleanly without touching /tests.
