@@ -1,0 +1,23 @@
+version = "1.0"
+
+[metadata]
+category = "Compiler/graph work"
+secondary_categories = ["Kernel-Framework Integration"]
+tags = ["pytorch", "onnx", "export", "custom-op", "symbolic"]
+difficulty = "hard"
+difficulty_explanation = "The task requires bridging eager-mode custom C++ operators with static-graph export formats (ONNX). The agent must implement a proper ONNX symbolic mapping for a custom operator, navigating PyTorch's export symbol registries without breaking runtime execution."
+solution_explanation = "Register a custom ONNX symbolic function for the custom operator using torch.onnx.register_custom_op_symbolic, enabling the exporter to translate the node into valid ONNX operators."
+verification_explanation = "The test suite validates both eager-mode execution (pass-to-pass) and successful ONNX export compilation (fail-to-pass) to ensure end-to-end graph deployment readiness."
+expert_time_estimate_hours = 3.0
+
+[verifier]
+timeout_sec = 300
+
+[agent]
+timeout_sec = 600
+
+[environment]
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
